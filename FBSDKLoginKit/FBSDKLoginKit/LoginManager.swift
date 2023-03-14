@@ -529,10 +529,10 @@ public final class LoginManager: NSObject {
     ]
     var parameters = nullableParameters.compactMapValues { $0 }
 
-    var permissions = configuration.requestedPermissions
-    if let openIDPermission = FBPermission(string: "openid") {
-      permissions.insert(openIDPermission)
-    }
+    let permissions = configuration.requestedPermissions
+    // if let openIDPermission = FBPermission(string: "openid") {
+    //   permissions.insert(openIDPermission)
+    // }
     parameters["scope"] = permissions.map(\.value).joined(separator: ",")
 
     if let messengerPageID = configuration.messengerPageId {
